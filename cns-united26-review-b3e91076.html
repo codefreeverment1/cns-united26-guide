@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNS United — 2026 世界杯信息枢纽</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(145deg, #fdf3e7 0%, #fae1ce 40%, #f7d0b5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .container {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 40px -12px rgba(110, 70, 40, 0.25),
+                        0 8px 16px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hero-short {
+            font-size: 1.1rem;
+            letter-spacing: 0.01em;
+            color: #8b5e3c;
+            border-left: 4px solid #d9a77c;
+            padding-left: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-short strong {
+            font-weight: 600;
+            color: #4f3a2a;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #3b2e22;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .intro-paragraph {
+            font-size: 1.05rem;
+            color: #3f362d;
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        .intro-paragraph a {
+            color: #b76a3a;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #eacbb8;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-paragraph a:hover {
+            border-bottom-color: #b76a3a;
+            color: #8f532b;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem 2rem;
+            margin: 2.5rem 0 2.8rem;
+        }
+
+        .feature-item {
+            background: #f9f2ea;
+            border-radius: 24px;
+            padding: 1.2rem 1.5rem;
+            transition: background 0.15s;
+        }
+
+        .feature-item:hover {
+            background: #f5e6da;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #4d3728;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #5b4b3c;
+            margin-top: 0.25rem;
+        }
+
+        .feature-item span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #d9a77c;
+            border-radius: 2px;
+            margin-right: 6px;
+        }
+
+        .scene-note {
+            background: #f1e4d8;
+            border-radius: 28px;
+            padding: 1.4rem 2rem;
+            margin: 2rem 0 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 1rem;
+        }
+
+        .scene-note strong {
+            font-weight: 600;
+            color: #3b2e22;
+        }
+
+        .scene-note p {
+            flex: 1;
+            min-width: 200px;
+            color: #4f3f32;
+            font-size: 0.98rem;
+        }
+
+        .faq-condensed {
+            margin: 2rem 0 1.5rem;
+            padding: 0.8rem 0;
+            border-top: 1px solid #e2d3c4;
+            border-bottom: 1px solid #e2d3c4;
+        }
+
+        .faq-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.5rem 0;
+            gap: 1rem;
+        }
+
+        .faq-row dt {
+            font-weight: 500;
+            color: #4d3a2b;
+            flex-shrink: 0;
+        }
+
+        .faq-row dd {
+            color: #5f4e3d;
+            font-size: 0.92rem;
+            text-align: right;
+        }
+
+        .gentle-end {
+            margin-top: 2.2rem;
+            padding-top: 1rem;
+            font-size: 0.98rem;
+            color: #5b4a3a;
+            border-top: 1px dashed #dccbbc;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .gentle-end a {
+            color: #7a5c44;
+            text-decoration: none;
+            border-bottom: 1px solid #cfb9a8;
+            font-weight: 500;
+        }
+
+        .gentle-end a:hover {
+            border-bottom-color: #7a5c44;
+            color: #4d3728;
+        }
+
+        .footnote {
+            font-size: 0.82rem;
+            color: #917b68;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 2rem 1.5rem;
+                border-radius: 32px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .intro-paragraph {
+                max-width: 100%;
+            }
+
+            .hero-short {
+                font-size: 1rem;
+            }
+
+            .scene-note {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.2rem 1.5rem;
+            }
+
+            .faq-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.1rem;
+            }
+
+            .faq-row dd {
+                text-align: left;
+            }
+
+            .gentle-end {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-short">
+            <strong>2026 · 联合赛区</strong> — 信息聚合起点
+        </div>
+
+        <h1>cns-united26.com<br>站在赛事信息的前沿</h1>
+
+        <div class="intro-paragraph">
+            足球界每四年一次的盛事，吸引着全球目光。这个站点旨在为关注者提供一站式的赛事资讯入口，内容涵盖赛程框架、队伍档案与主办城市动态。站点本身不参与博彩、不提供流媒体直链，定位为可信的中文信息参考。核心概念始终围绕 <a href="https://cns-united26.com">世界杯</a> 的赛会制架构与球迷文化展开，力求呈现经过梳理的公开资料。
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3><span></span>赛程结构</h3>
+                <p>小组赛至淘汰赛阶段的时间线与场馆分布，数据整理自官方发布渠道。</p>
+            </div>
+            <div class="feature-item">
+                <h3><span></span>参赛队档案</h3>
+                <p>各代表队历史表现、预选赛路径及核心阵容变动摘要，不含主观预测。</p>
+            </div>
+            <div class="feature-item">
+                <h3><span></span>城市指南</h3>
+                <p>联合主办城市的球场容量、交通节点与当地观赛文化背景介绍。</p>
+            </div>
+            <div class="feature-item">
+                <h3><span></span>新闻时间线</h3>
+                <p>筛选自多家通讯社的赛会新闻聚合，侧重赛事组织与规则变更。</p>
+            </div>
+        </div>
+
+        <div class="scene-note">
+            <strong>常见使用场景</strong>
+            <p>查阅比赛日历、比较各小组出线形势、了解主办城市之间的转场距离 —— 站内信息均标注来源或引用日期，方便交叉验证。</p>
+        </div>
+
+        <dl class="faq-condensed">
+            <div class="faq-row">
+                <dt>信息更新频率？</dt>
+                <dd>关键节点（抽签、赛程调整）后 24 小时内同步。</dd>
+            </div>
+            <div class="faq-row">
+                <dt>是否含深度分析？</dt>
+                <dd>以信息汇编为主，不设专栏评论，保持轻量中立。</dd>
+            </div>
+        </dl>
+
+        <div class="gentle-end">
+            <span>浏览前请留意：本站与赛事官方机构无隶属关系，所有内容仅供个人参考。</span>
+            <span>
+                <a href="https://cns-united26.com">世界杯</a> · 2026
+            </span>
+        </div>
+
+        <div class="footnote">
+            页面并非实时数据面板，建议同时关注所在地足协的官方渠道。
+        </div>
+    </div>
+</body>
+</html>
